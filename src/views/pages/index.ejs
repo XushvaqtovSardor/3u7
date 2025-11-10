@@ -1,0 +1,19 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="blog-box">
+    <h1 class="blog-title">Personal Blog</h1>
+    
+    <% if (articles.length === 0) { %>
+        <p style="color: #999; text-align: center; padding: 40px 0;">No articles yet</p>
+    <% } else { %>
+        <% articles.forEach(article => { %>
+            <div class="article-item">
+                <a href="/article/<%= article._id %>" class="article-title"><%= article.title %></a>
+                <span class="article-date"><%= new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>

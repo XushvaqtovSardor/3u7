@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="blog-box">
+    <h1 class="blog-title">New Article</h1>
+    
+    <form method="POST" action="/admin/new">
+        <div class="form-group">
+            <label>Article Title</label>
+            <input type="text" name="title" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Publishing Date</label>
+            <input type="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Content</label>
+            <textarea name="content" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Publish</button>
+        <a href="/admin" class="btn">Cancel</a>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

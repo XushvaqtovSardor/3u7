@@ -1,0 +1,17 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="blog-box">
+    <h1 class="blog-title"><%= article.title %></h1>
+    <p class="article-date"><%= new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+    
+    <div class="article-content">
+        <%= article.content %>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <a href="/" class="btn">← Back to Home</a>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

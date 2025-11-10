@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="blog-box">
+    <div class="admin-header">
+        <h1 class="blog-title">Personal Blog</h1>
+        <div class="admin-actions">
+            <a href="/admin/new" class="btn btn-primary">+ Add</a>
+            <a href="/logout" class="btn">Logout</a>
+        </div>
+    </div>
+    
+    <% if (articles.length === 0) { %>
+        <p style="color: #999; text-align: center; padding: 40px 0;">No articles yet. Create your first article!</p>
+    <% } else { %>
+        <% articles.forEach(article => { %>
+            <div class="article-item">
+                <span class="article-title"><%= article.title %></span>
+                <div class="admin-actions">
+                    <a href="/admin/edit/<%= article._id %>" class="btn">Edit</a>
+                    <form method="POST" action="/admin/delete/<%= article._id %>" style="display: inline;">
+                        <button type="submit" class="btn" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
